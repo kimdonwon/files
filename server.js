@@ -24,4 +24,4 @@ var router = require('./router/MainControl')(app);
 var server = app.listen(port, function(){
   console.log("gogo server " + port);
 })
-//anjdidlrjasdasdxzc
+//anjdidlrjasdasdxzasdsac
