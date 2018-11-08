@@ -34,7 +34,11 @@ db.on('error',console.error);
 db.once('open',function(){
   console.log("MongoDB gogo");
 });
-mongo.connect('mongodb://localhost/portfolio');
+mongo.connect(
+        `mongodb://${process.env.DB_HOST || 'localhost'}:27017/${
+          process.env.DB || 'portfolio'
+        }`,
+      )
 var Post = require('./models/post');
 
 
