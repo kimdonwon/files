@@ -7,6 +7,9 @@ module.exports = function(app,fs,Post){
     req.socket.remoteAddress ||
     req.connection.socket.remoteAddress;
     console.log(ip+"가 연결 시도함"+new Date());
+    fs.appendFile("log.txt",ip+"  "+new Date()+"\r\n",'utf-8',function(e){
+      if(e)console.log(e);
+    })
     res.render('index.html')
   })
   app.post('/',function(req,res){
