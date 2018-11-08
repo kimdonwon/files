@@ -10,6 +10,18 @@ module.exports = function(app,fs,Post){
     fs.appendFile("log.txt",ip+"  "+new Date()+"\r\n",'utf-8',function(e){
       if(e)console.log(e);
     })
+    var postdb = new Post();
+    postdb.name="Log";
+    postdb.email=new Date();
+    postdb.message=ip;
+
+    postdb.save(function(err){
+      if(err){
+        console.error(err);
+        return;
+      }
+      console.log("Db에 메세지 저장");
+    });
     res.render('index.html')
   })
   app.post('/',function(req,res){
